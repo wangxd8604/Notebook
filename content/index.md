@@ -1,5 +1,5 @@
 ---
-{"publish":true,"cssclasses":""}
+{"publish":true,"title":"Welcome to my quartz notebook","cssclasses":""}
 ---
 
 # 欢迎！！！
