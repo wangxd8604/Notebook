@@ -69,8 +69,8 @@ CAPM是一个市场均衡模型，意味着证券供需相等，市场出清，�
     *   **Beta定义：** $\beta_i = \frac{Cov(r_i, r_M)}{ Var(r_M)}$。
     *   **推导逻辑：**
         *   CAPM是一个市场均衡模型$\Rightarrow$证券的供给和需求相等，每个参与者都实现自身效用最大化。
-        *   市场组合的风险溢价可以分解为：$E(r_M)-r_f=E(\Sigma_iw_ir_i)-r_f=\Sigma_iw_i[E(r_i)-r_f]$$\Rightarrow$每个资产对于风险溢价的贡献为：$w_i[E(r_i)-r_f]$
-        *   市场组合的风险可以分解为：$\operatorname{Var}\left(r_M\right)=\operatorname{Cov}\left(\sum_{i=1}^N w_i r_i, r_M\right)=\sum_{i=1}^N w_i \operatorname{Cov}\left(r_i, r_M\right)$$\Rightarrow$每个资产对于风险的贡献为：$w_i \operatorname{Cov}\left(r_i, r_M\right)$
+        *   市场组合的风险溢价可以分解为：$E(r_M)-r_f=E(\Sigma_iw_ir_i)-r_f=\Sigma_iw_i[E(r_i)-r_f]$ $\Rightarrow$每个资产对于风险溢价的贡献为：$w_i[E(r_i)-r_f]$
+        *   市场组合的风险可以分解为：$\operatorname{Var}\left(r_M\right)=\operatorname{Cov}\left(\sum_{i=1}^N w_i r_i, r_M\right)=\sum_{i=1}^N w_i \operatorname{Cov}\left(r_i, r_M\right)$ $\Rightarrow$每个资产对于风险的贡献为：$w_i \operatorname{Cov}\left(r_i, r_M\right)$
         *   市场组合中资产的风险价格全部相等（如果不等则需求一定为0或无穷大，无法达到均衡）:$\frac{w_i[E\left(r_i\right)-r_f]}{w_i\operatorname{Cov}\left(r_i, r_M\right)}=\frac{E\left(r_i\right)-r_f}{\operatorname{Cov}\left(r_i, r_M\right)}=\frac{E\left(r_j\right)-r_f}{\operatorname{Cov}\left(r_j, r_M\right)} \equiv \bar{k}$
         *   $E\left(r_i\right)-r_f=\bar{k}\operatorname{Cov}\left(r_i, r_M\right)$等式两侧乘上对应的$w_i$，所有等式两侧相加，最终得到均衡条件下，市场组合的风险价格等于单个资产的风险价格。$\begin{gathered}\sum_{i=1}^N w_i\left[E\left(r_i\right)-r_f\right] \equiv \sum_{i=1}^N w_i \bar{k} \operatorname{Cov}\left(r_i, r_M\right) \\ E\left(r_M\right)-r_f=\bar{k} \operatorname{Cov}\left(r_M, r_M\right)=\bar{k} \operatorname{Var}\left(r_M\right) \\ \frac{E\left(r_M\right)-r_f}{\operatorname{Var}\left(r_M\right)}=\bar{k}=\frac{E\left(r_i\right)-r_f}{\operatorname{Cov}\left(r_i, r_M\right)}\end{gathered}$
         * 最终得到CAPM的基本表达式。
@@ -82,8 +82,7 @@ CAPM是一个市场均衡模型，意味着证券供需相等，市场出清，�
 > *推导：*
 >$\begin{array}{lc}\max _{w_1 \cdots w_N} & \theta=\text { slope }=\frac{E\left(r_p\right)-r_f}{\sigma_p} \\ \text { s.t. } & E\left(r_p\right)=\sum_{i=1}^N w_i E\left(r_i\right) \\ & \sum_{i=1}^N w_i=1\\ &\sigma_p=\left[\sum_{i=1}^N w_i^2 \sigma_i^2+\sum_{i=1}^N \sum_{j=1, i \neq j}^N w_i w_j \sigma_{i j}^2\right]^{0.5}\end{array}$
 >将方差、期望代入目标方程
->
-$\theta=\frac{\sum_{i=1}^N w_i\left[E\left(r_i\right)-r_f\right]}{\left[\sum_{i=1}^N w_i^2 \sigma_i^2+\sum_{i=1}^N \sum_{j=1, i \neq j}^N w_i w_j \sigma_{i j}^2\right]^{0.5}}$
+>$\theta=\frac{\sum_{i=1}^N w_i\left[E\left(r_i\right)-r_f\right]}{\left[\sum_{i=1}^N w_i^2 \sigma_i^2+\sum_{i=1}^N \sum_{j=1, i \neq j}^N w_i w_j \sigma_{i j}^2\right]^{0.5}}$
 令：
 $\begin{gathered}F_1(w)=\sum_{i=1}^N w_i\left[E\left(r_i\right)-r_f\right] \\ F_2(w)=\left[\sum_{i=1}^N w_i^2 \sigma_i^2+\sum_{i=1}^N \sum_{j=1, i \neq j}^N w_i w_j \sigma_{i j}^2\right]^{-0.5} \\ \frac{\partial F_1(w)}{\partial w_k}=E\left(r_k\right)-r_f \\ \frac{\partial F_2(w)}{\partial w_k}=-\frac{1}{2}\left(\sum_{i=1}^N w_i^2 \sigma_i^2+\sum_{i=1}^N \sum_{j=1, i, i j}^N w_i w_j \sigma_{i j}^2\right)^{-\frac{3}{2}} \times\left(2 w_k \sigma_k^2+2 \sum_{j=1, j \neq k}^N w_j \sigma_{j k}^2\right) \\ =-\frac{1}{2} F_2(w)^3 \times\left(2 w_k \sigma_k^2+2 \sum_{j=1, j \neq k}^N w_j \sigma_{j k}^2\right) \\ \end{gathered}$
 令：
@@ -112,19 +111,14 @@ $E\left(r_i\right)-r_f=z_1 \sigma_{i 1}^2+z_2 \sigma_{i 2}^2+z_3 \sigma_{i 3}^2+
     *   **特点：**
         *   当Beta=1时，期望收益为市场组合的期望收益 `E(r_M)`。
         *   刻画的是作为资产风险函数的单项资产的风险溢价，风险工具是Beta。
-        *   **适用于任意资产组合或单项资产**。
-    ![](https://files.mdnice.com/user/73277/71fc2b06-d9d7-49ea-9ac1-c9e0434a26e3.png)
-
-
-
+        *   **适用于任意资产组合或单项资产**。![|366x305](https://files.mdnice.com/user/73277/71fc2b06-d9d7-49ea-9ac1-c9e0434a26e3.png)
 3.  **CAL、CML和SML的比较**
     *   **CAL (Capital Allocation Line - 资本配置线)：** 仅考虑有风险+无风险资产的组合情况，描述任意资产的期望收益与标准差的关系，最优条件下是过无风险资产与有效边界相切的线。
-    ![](https://files.mdnice.com/user/73277/e23b0edc-d61b-4ace-836f-1fc01da67436.png)
+	    ![|299x292](https://files.mdnice.com/user/73277/e23b0edc-d61b-4ace-836f-1fc01da67436.png)
     *   **CML (Capital Market Line - 资本市场线)：** 描述当所有投资者有同质预期时，有效率资产的期望收益与标准差的关系。是过无风险资产与市场组合的线。**只适用于有效率的投资组合**。
-    ![](https://files.mdnice.com/user/73277/d6a5783b-adea-41a4-ae30-36cb1079e594.png)
-
+	    ![|321x303](https://files.mdnice.com/user/73277/d6a5783b-adea-41a4-ae30-36cb1079e594.png)
     *   **SML (Security Market Line - 证券市场线)：** 描述市场均衡时资产的期望收益与**系统性风险（Beta）** 的关系。只要市场有效率（不对非系统性风险补偿），**无论是单个资产还是资产组合都在SML上**。
-    ![](https://files.mdnice.com/user/73277/71fc2b06-d9d7-49ea-9ac1-c9e0434a26e3.png)
+     ![|366x305](https://files.mdnice.com/user/73277/71fc2b06-d9d7-49ea-9ac1-c9e0434a26e3.png)
 
 4.  **SML与业绩评估 (SML and Performance Evaluation)**
     *   **公平定价基准：** “公平定价”的资产一定在SML上，其期望收益与风险相匹配。
@@ -143,7 +137,7 @@ $E\left(r_i\right)-r_f=z_1 \sigma_{i 1}^2+z_2 \sigma_{i 2}^2+z_3 \sigma_{i 3}^2+
         *   `E(R_Z)` 是零Beta组合的期望收益率。
         *   `E(R_M) - E(R_Z)` 是风险溢价。
         *   模型形式变化不大，只是用零Beta组合的期望收益率替代了无风险利率。
-    ![](https://files.mdnice.com/user/73277/ac89272f-a085-4df1-8543-b09b2a0ec34d.png)
+    ![|442x409](https://files.mdnice.com/user/73277/ac89272f-a085-4df1-8543-b09b2a0ec34d.png)
 
 2.  **Robert Merton：多因素CAPM (Multifactor CAPM)**
     *   **动机：** [[投资学/Lecture 7 证券组合管理\|Markowitz]]和CAPM假设投资者唯一关心的风险是证券价格在未来的不确定性。但现实中投资者还关心其他影响其未来消费能力的风险，如未来劳务收入风险、消费品未来相对价格、未来投资机会等。
