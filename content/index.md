@@ -1,5 +1,5 @@
 ---
-{"publish":true,"title":"Welcome to my quartz notebook","cssclasses":""}
+{"publish":true,"title":"Welcome to Xiangdong Wang's quartz notebook","cssclasses":""}
 ---
 
 # 欢迎！！！
