@@ -24,7 +24,7 @@ const config: QuartzConfig = {
       cdnCaching: true,
     typography: {
       header: {
-        name: "Times New Roman, KaiTi, STKaiti, 楷体, serif",
+        name: "Times New Roman, KaiTi, STKaiti, 楷体",
         weights: [400, 700],
         includeItalic: false,
       },
