@@ -22,11 +22,19 @@ const config: QuartzConfig = {
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
-      typography: {
-        header: "Schibsted Grotesk",
-        body: "Source Sans Pro",
-        code: "IBM Plex Mono",
+    typography: {
+      header: {
+        name: "Arial, Helvetica, Microsoft YaHei, Heiti SC, sans-serif",
+        weights: [400, 700],
+        includeItalic: false,
       },
+      body: {
+        name: "Times New Roman, KaiTi, STKaiti, 楷体, serif",
+        weights: [400, 700],
+        includeItalic: false,
+      },
+      code: "Fira Code, Menlo, Monaco, Consolas, monospace",
+    },
       colors: {
         lightMode: {
           light: "#faf8f8",
