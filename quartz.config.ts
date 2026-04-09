@@ -24,12 +24,12 @@ const config: QuartzConfig = {
       cdnCaching: true,
     typography: {
       header: {
-        name: "Times New Roman, KaiTi, STKaiti, 楷体",
+        name: "Arial, Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimHei, 黑体, sans-serif",
         weights: [400, 700],
         includeItalic: false,
       },
       body: {
-        name: "Times New Roman, KaiTi, STKaiti, 楷体, serif",
+        name: "Times New Roman, Times, KaiTi, STKaiti, Kaiti SC, 楷体, serif",
         weights: [400, 700],
         includeItalic: false,
       },
