@@ -5,17 +5,16 @@ on:
     branches:
       - v4
 
+# Need contents: write to push to gh-pages branch
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v6
@@ -24,34 +23,12 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 22
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v6
-        with:
-          enablement: true
-      - name: Set Pages deployment source to GitHub Actions
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          gh api \
-            --method PUT \
-            /repos/${{ github.repository }}/pages \
-            -f build_type=workflow || echo "Warning: Could not update Pages settings. If deployment fails with 422, ensure GitHub Pages is enabled in repository Settings > Pages and set to 'GitHub Actions' as source."
       - name: Install Dependencies
         run: npm ci
       - name: Build Quartz
         run: npx quartz build
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
-        with:
-          path: public
-
-  deploy:
-    needs: build
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v5
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
