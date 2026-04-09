@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - v4
+      - copilot/fix-notebook-url-access-issue
  
 permissions:
   contents: read
