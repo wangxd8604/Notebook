@@ -22,19 +22,19 @@ const config: QuartzConfig = {
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
-    typography: {
-      header: {
-        name: "Arial, Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimHei, 黑体, sans-serif",
-        weights: [400, 700],
-        includeItalic: false,
+      typography: {
+        header: {
+          name: "Arial, Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimHei, 黑体, sans-serif",
+          weights: [400, 700],
+          includeItalic: false,
+        },
+        body: {
+          name: "Times New Roman, Times, KaiTi, STKaiti, Kaiti SC, 楷体, serif",
+          weights: [400, 700],
+          includeItalic: false,
+        },
+        code: "Fira Code, Menlo, Monaco, Consolas, monospace",
       },
-      body: {
-        name: "Times New Roman, Times, KaiTi, STKaiti, Kaiti SC, 楷体, serif",
-        weights: [400, 700],
-        includeItalic: false,
-      },
-      code: "Fira Code, Menlo, Monaco, Consolas, monospace",
-    },
       colors: {
         lightMode: {
           light: "#faf8f8",
