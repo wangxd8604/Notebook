@@ -1,5 +1,5 @@
 ---
-{"publish":true,"aliases":"CAPM","created":"2025-07-01T15:48:09.000+08:00","modified":"2026-04-09T20:06:26.680+08:00","cssclasses":""}
+{"publish":true,"aliases":"CAPM","created":"2025-07-01T15:48:09.000+08:00","modified":"2026-04-09T20:22:06.065+08:00","cssclasses":""}
 ---
 
 ## 一、引言 (Introduction)
@@ -78,24 +78,77 @@ CAPM是一个市场均衡模型，意味着证券供需相等，市场出清，�
 
 理论推导从市场组合是切点组合（即斜率 $(E(r_p) - r_f) / σ_p$ 达到最大）开始，通过最优化问题的一阶条件，最终推导出CAPM表达式，具体推导过程不在考察范围内，以下仅做展示。
 
+**推导：**
 
-> *推导：*
->$\begin{array}{lc}\max _{w_1 \cdots w_N} & \theta=\text { slope }=\frac{E\left(r_p\right)-r_f}{\sigma_p} \\ \text { s.t. } & E\left(r_p\right)=\sum_{i=1}^N w_i E\left(r_i\right) \\ & \sum_{i=1}^N w_i=1\\ &\sigma_p=\left[\sum_{i=1}^N w_i^2 \sigma_i^2+\sum_{i=1}^N \sum_{j=1, i \neq j}^N w_i w_j \sigma_{i j}^2\right]^{0.5}\end{array}$
->将方差、期望代入目标方程
->$\theta=\frac{\sum_{i=1}^N w_i\left[E\left(r_i\right)-r_f\right]}{\left[\sum_{i=1}^N w_i^2 \sigma_i^2+\sum_{i=1}^N \sum_{j=1, i \neq j}^N w_i w_j \sigma_{i j}^2\right]^{0.5}}$
+最大化夏普比率：
+$$
+\max _{w_1 \cdots w_N} \theta = \frac{E(r_p)-r_f}{\sigma_p}
+$$
+约束条件为：
+$$
+\begin{aligned}
+E(r_p) &= \sum_{i=1}^N w_i E(r_i) \\
+\sum_{i=1}^N w_i &= 1 \\
+\sigma_p &= \left[\sum_{i=1}^N w_i^2 \sigma_i^2+\sum_{i=1}^N \sum_{j=1, i \neq j}^N w_i w_j \sigma_{ij}^2\right]^{0.5}
+\end{aligned}
+$$
+
+将方差、期望代入目标方程：
+$$
+\theta=\frac{\sum_{i=1}^N w_i[E(r_i)-r_f]}{\left[\sum_{i=1}^N w_i^2 \sigma_i^2+\sum_{i=1}^N \sum_{j=1, i \neq j}^N w_i w_j \sigma_{ij}^2\right]^{0.5}}
+$$
+
 令：
-$\begin{gathered}F_1(w)=\sum_{i=1}^N w_i\left[E\left(r_i\right)-r_f\right] \\ F_2(w)=\left[\sum_{i=1}^N w_i^2 \sigma_i^2+\sum_{i=1}^N \sum_{j=1, i \neq j}^N w_i w_j \sigma_{i j}^2\right]^{-0.5} \\ \frac{\partial F_1(w)}{\partial w_k}=E\left(r_k\right)-r_f \\ \frac{\partial F_2(w)}{\partial w_k}=-\frac{1}{2}\left(\sum_{i=1}^N w_i^2 \sigma_i^2+\sum_{i=1}^N \sum_{j=1, i, i j}^N w_i w_j \sigma_{i j}^2\right)^{-\frac{3}{2}} \times\left(2 w_k \sigma_k^2+2 \sum_{j=1, j \neq k}^N w_j \sigma_{j k}^2\right) \\ =-\frac{1}{2} F_2(w)^3 \times\left(2 w_k \sigma_k^2+2 \sum_{j=1, j \neq k}^N w_j \sigma_{j k}^2\right) \\ \end{gathered}$
-令：
-$\frac{\partial \theta}{\partial w_k}=F_1(w^*) \frac{\partial F_2(w)}{\partial w_k}|_{w=w^*}+F_2(w^*) \frac{\partial F_1(w)}{\partial w_k}|_{w=w^*}=0,\ \ \ k=1,...,N$
+$$
+\begin{gathered}
+F_1(w)=\sum_{i=1}^N w_i[E(r_i)-r_f] \\
+F_2(w)=\left[\sum_{i=1}^N w_i^2 \sigma_i^2+\sum_{i=1}^N \sum_{j=1, i \neq j}^N w_i w_j \sigma_{ij}^2\right]^{-0.5} \\
+\frac{\partial F_1(w)}{\partial w_k}=E(r_k)-r_f \\
+\frac{\partial F_2(w)}{\partial w_k}=-\frac{1}{2}\left(\sum_{i=1}^N w_i^2 \sigma_i^2+\sum_{i=1}^N \sum_{j=1, i, i j}^N w_i w_j \sigma_{ij}^2\right)^{-\frac{3}{2}} \times\left(2 w_k \sigma_k^2+2 \sum_{j=1, j \neq k}^N w_j \sigma_{jk}^2\right) \\
+=-\frac{1}{2} F_2(w)^3 \times\left(2 w_k \sigma_k^2+2 \sum_{j=1, j \neq k}^N w_j \sigma_{jk}^2\right)
+\end{gathered}
+$$
+
+令一阶导数为零：
+$$
+\frac{\partial \theta}{\partial w_k}=F_1(w^*) \frac{\partial F_2(w)}{\partial w_k}|_{w=w^*}+F_2(w^*) \frac{\partial F_1(w)}{\partial w_k}|_{w=w^*}=0,\ \ \ k=1,...,N
+$$
+
 替换式中函数与偏导：
-$-\frac{\sum_{i=1}^N w_i[E(r_i)-r_f]}{\sum_{i=1}^N (w_i)^2 \sigma_i^2+\sum_{i=1}^N \sum_{j=1, i \neq j}^N w_i w_j \sigma_{i j}^2} (w_k \sigma_k^2+\sum_{j=1, j \neq k}^N w_j \sigma_{j, k}) |_{w=w^*}+[E(r_k)-r_f]=0$
->由于下面的表达式对全体资产求和，简化下角标:
-$\begin{gathered}\\ \lambda=\frac{\sum_{i=1}^N w_i\left[E\left(r_i\right)-r_f\right]}{\sum_{i=1}^N w_i^2 \sigma_i^2+\sum_{i=1}^N \sum_{j=1, i \neq j}^N w_i w_j \sigma_{i j}^2} |_{w=w^*}=\frac{E\left(r_M\right)-r_f}{\sigma_M^2} \\ E\left(r_k\right)-r_f=\lambda w_k \sigma_k^2 |_{w=w^*}+\sum_{j=1, k \neq j}^N \lambda w_j \sigma_{j k}^2 |_{w=w^*} \\ z_k=\lambda w_k^* \\ E\left(r_i\right)-r_f=z_1 \sigma_{i 1}^2+z_2 \sigma_{i 2}^2+z_3 \sigma_{i 3}^2+\cdots+z_N \sigma_{i N}^2 \end{gathered}$
-此N元线性方程组满秩条件下有唯一解，但对应得$w^*$存在无数个，解系为与$z$共线的向量集（证明略，证明思路是求出$w$关于$\lambda$的表达式并反代回$\lambda$关于$w$的方程，证明左右两侧恒成立，这也是该模型存在解析解精妙的地方），但根据优化问题中剩下的最后一个条件——解的和为1，可以确定唯一的解析解： 
-$w_k^*=\frac{z_k}{\sum_{k=1}^N z_k}$
+$$
+-\frac{\sum_{i=1}^N w_i[E(r_i)-r_f]}{\sum_{i=1}^N (w_i)^2 \sigma_i^2+\sum_{i=1}^N \sum_{j=1, i \neq j}^N w_i w_j \sigma_{ij}^2} (w_k \sigma_k^2+\sum_{j=1, j \neq k}^N w_j \sigma_{j, k}) |_{w=w^*}+[E(r_k)-r_f]=0
+$$
+
+由于下面的表达式对全体资产求和，简化下角标:
+$$
+\begin{gathered}
+\lambda=\frac{\sum_{i=1}^N w_i[E(r_i)-r_f]}{\sum_{i=1}^N w_i^2 \sigma_i^2+\sum_{i=1}^N \sum_{j=1, i \neq j}^N w_i w_j \sigma_{ij}^2} |_{w=w^*}=\frac{E(r_M)-r_f}{\sigma_M^2} \\
+E(r_k)-r_f=\lambda w_k \sigma_k^2 |_{w=w^*}+\sum_{j=1, k \neq j}^N \lambda w_j \sigma_{jk}^2 |_{w=w^*} \\
+z_k=\lambda w_k^* \\
+E(r_i)-r_f=z_1 \sigma_{i1}^2+z_2 \sigma_{i2}^2+z_3 \sigma_{i3}^2+\cdots+z_N \sigma_{iN}^2
+\end{gathered}
+$$
+
+此N元线性方程组满秩条件下有唯一解，但对应得$w^*$存在无数个，解系为与$z$共线的向量集（证明略，证明思路是求出$w$关于$\lambda$的表达式并反代回$\lambda$关于$w$的方程，证明左右两侧恒成立，这也是该模型存在解析解精妙的地方），但根据优化问题中剩下的最后一个条件——解的和为1，可以确定唯一的解析解：
+$$
+w_k^*=\frac{z_k}{\sum_{k=1}^N z_k}
+$$
+
 继续对单个资产的风险溢价分析：
-$E\left(r_i\right)-r_f=z_1 \sigma_{i 1}^2+z_2 \sigma_{i 2}^2+z_3 \sigma_{i 3}^2+\cdots+z_N \sigma_{i N}^2=\lambda Cov(r_i,r_M) = \frac{E\left(r_M\right)-r_f}{\sigma_M^2} Cov(r_i,r_M)=\beta_i(E\left(r_M\right)-r_f)$
-得出均衡条件下，单个资产的风险价格相等：$\frac{E\left(r_i\right)-r_f}{Cov(r_i,r_M)}=\lambda$
+$$
+\begin{aligned}
+E(r_i)-r_f &= z_1 \sigma_{i1}^2+z_2 \sigma_{i2}^2+z_3 \sigma_{i3}^2+\cdots+z_N \sigma_{iN}^2 \\
+&= \lambda Cov(r_i,r_M) \\
+&= \frac{E(r_M)-r_f}{\sigma_M^2} Cov(r_i,r_M) \\
+&= \beta_i(E(r_M)-r_f)
+\end{aligned}
+$$
+
+得出均衡条件下，单个资产的风险价格相等：
+$$
+\frac{E(r_i)-r_f}{Cov(r_i,r_M)}=\lambda
+$$
+
 此外，模型的解析解给出了一个重要的结论：均衡状态下，资产的风险溢价只和市场组合回报一起波动的系统风险相关，即结论三。这意味着市场不会对单个资产的非系统性风险给予任何回报，这是均衡条件下内生推导的一个定理而非经验结论或前提假设。
 
 1.  **Beta的意义 (Meaning of Beta)**
