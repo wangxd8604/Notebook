@@ -1,5 +1,5 @@
 ---
-{"publish":true,"aliases":"债券价值 固收 债券收益率 被动债券组合","title":"Lecture 3 债券价值分析","cssclasses":""}
+{"publish":true,"aliases":"债券价值 固收 债券收益率 被动债券组合","title":"Lecture 3 债券价值分析","created":"2025-07-02","modified":"2026-04-09T20:04:48.891+08:00","cssclasses":""}
 ---
 
 **学习内容**:

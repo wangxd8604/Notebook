@@ -1,5 +1,5 @@
 ---
-{"publish":true,"aliases":"CAPM","cssclasses":""}
+{"publish":true,"aliases":"CAPM","created":"2025-07-01T15:48:09.000+08:00","modified":"2026-04-09T20:06:26.680+08:00","cssclasses":""}
 ---
 
 ## 一、引言 (Introduction)
@@ -58,8 +58,8 @@ CAPM是一个市场均衡模型，意味着证券供需相等，市场出清，�
     *   由于所有投资者均采用[[投资学/Lecture 7 证券组合管理\|Markowitz]]模型，其选择的最优风险资产组合一定在有效边界上，且是资本配置线 (CAL) 与有效边界的切点。
     *   **资本市场线 (CML - Capital Market Line)：** 当市场存在无风险资产和多个风险资产时，CAL成为一条通过无风险资产和市场资产组合的直线，即CML。
     *   **CML方程式：** $E(r_p) = r_f + \frac{E(r_M) - r_f }{σ_M }σ_p$。
-    *   **图示：** CML是一条从无风险利率 `r_f` 出发，与有效边界相切于市场组合M的直线。
-    ![](https://files.mdnice.com/user/73277/c12e2002-10fd-4f68-8063-d3d1da23ab20.png)
+    *   **图示：** CML是一条从无风险利率 `r_f` 出发，与有效边界相切于市场组合M的直线。![[投资学/附件/Pasted image 20260409200013.png]]
+
 
 
 4.  **结论三：单个资产的风险溢价与市场资产组合M的风险溢价成比例，且与该证券的**Beta系数**成比例**
@@ -111,14 +111,12 @@ $E\left(r_i\right)-r_f=z_1 \sigma_{i 1}^2+z_2 \sigma_{i 2}^2+z_3 \sigma_{i 3}^2+
     *   **特点：**
         *   当Beta=1时，期望收益为市场组合的期望收益 `E(r_M)`。
         *   刻画的是作为资产风险函数的单项资产的风险溢价，风险工具是Beta。
-        *   **适用于任意资产组合或单项资产**。![|366x305](https://files.mdnice.com/user/73277/71fc2b06-d9d7-49ea-9ac1-c9e0434a26e3.png)
+        *   **适用于任意资产组合或单项资产**。![[投资学/附件/Pasted image 20260409200038.png]]
 3.  **CAL、CML和SML的比较**
-    *   **CAL (Capital Allocation Line - 资本配置线)：** 仅考虑有风险+无风险资产的组合情况，描述任意资产的期望收益与标准差的关系，最优条件下是过无风险资产与有效边界相切的线。
-	    ![|299x292](https://files.mdnice.com/user/73277/e23b0edc-d61b-4ace-836f-1fc01da67436.png)
-    *   **CML (Capital Market Line - 资本市场线)：** 描述当所有投资者有同质预期时，有效率资产的期望收益与标准差的关系。是过无风险资产与市场组合的线。**只适用于有效率的投资组合**。
-	    ![|321x303](https://files.mdnice.com/user/73277/d6a5783b-adea-41a4-ae30-36cb1079e594.png)
-    *   **SML (Security Market Line - 证券市场线)：** 描述市场均衡时资产的期望收益与**系统性风险（Beta）** 的关系。只要市场有效率（不对非系统性风险补偿），**无论是单个资产还是资产组合都在SML上**。
-     ![|366x305](https://files.mdnice.com/user/73277/71fc2b06-d9d7-49ea-9ac1-c9e0434a26e3.png)
+    *   **CAL (Capital Allocation Line - 资本配置线)：** 仅考虑有风险+无风险资产的组合情况，描述任意资产的期望收益与标准差的关系，最优条件下是过无风险资产与有效边界相切的线。![[投资学/附件/Pasted image 20260409200052.png]]
+    *   **CML (Capital Market Line - 资本市场线)：** 描述当所有投资者有同质预期时，有效率资产的期望收益与标准差的关系。是过无风险资产与市场组合的线。**只适用于有效率的投资组合**。![[投资学/附件/Pasted image 20260409200117.png]]
+    *   **SML (Security Market Line - 证券市场线)：** 描述市场均衡时资产的期望收益与**系统性风险（Beta）** 的关系。只要市场有效率（不对非系统性风险补偿），**无论是单个资产还是资产组合都在SML上**。![[投资学/附件/Pasted image 20260409200131.png]]
+
 
 4.  **SML与业绩评估 (SML and Performance Evaluation)**
     *   **公平定价基准：** “公平定价”的资产一定在SML上，其期望收益与风险相匹配。
@@ -136,8 +134,8 @@ $E\left(r_i\right)-r_f=z_1 \sigma_{i 1}^2+z_2 \sigma_{i 2}^2+z_3 \sigma_{i 3}^2+
     *   **修正形式：** $E(R_i) = E(R_Z) + \beta_i \times [E(R_M) - E(R_Z)]$。
         *   `E(R_Z)` 是零Beta组合的期望收益率。
         *   `E(R_M) - E(R_Z)` 是风险溢价。
-        *   模型形式变化不大，只是用零Beta组合的期望收益率替代了无风险利率。
-    ![|442x409](https://files.mdnice.com/user/73277/ac89272f-a085-4df1-8543-b09b2a0ec34d.png)
+        *   模型形式变化不大，只是用零Beta组合的期望收益率替代了无风险利率。![[投资学/附件/Pasted image 20260409200144.png]]
+  
 
 2.  **Robert Merton：多因素CAPM (Multifactor CAPM)**
     *   **动机：** [[投资学/Lecture 7 证券组合管理\|Markowitz]]和CAPM假设投资者唯一关心的风险是证券价格在未来的不确定性。但现实中投资者还关心其他影响其未来消费能力的风险，如未来劳务收入风险、消费品未来相对价格、未来投资机会等。
